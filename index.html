@@ -19,20 +19,19 @@
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .header {
-            background-color: navy;
+            background-color: #03055B;
             color: #fff;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
-            border-bottom: 1px solid #ddd;
         }
         .header h1 {
             margin: 0;
         }
         .table-container {
-            overflow-x: auto;
+            padding: 20px;
         }
         table {
             width: 100%;
@@ -46,23 +45,8 @@
         th {
             background-color: #f0f0f0;
         }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:nth-child(odd) {
-            background-color: #fff;
-        }
-        .nav {
-            background-color: navy;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
+        .navy {
+            color: #03055B;
         }
         @media only screen and (max-width: 768px) {
             .container {
@@ -70,7 +54,7 @@
                 padding: 10px;
             }
             .table-container {
-                overflow-x: auto;
+                padding: 10px;
             }
         }
     </style>
@@ -101,7 +85,7 @@
                     <td>CSE</td>
                     <td>WiFi Not Working</td>
                     <td>WiFi is not working in the lab area since morning.</td>
-                    <td>Pending</td>
+                    <td><span class="navy">Pending</span></td>
                     <td>5</td>
                     <td>1</td>
                     <td>2025-05-20</td>
@@ -113,7 +97,7 @@
                     <td>ECE</td>
                     <td>Projector Issue</td>
                     <td>Projector in room 205 is flickering.</td>
-                    <td>In Progress</td>
+                    <td><span class="navy">In Progress</span></td>
                     <td>2</td>
                     <td>0</td>
                     <td>2025-05-19</td>
@@ -125,7 +109,7 @@
                     <td>Boys Hostel</td>
                     <td>Water Leakage</td>
                     <td>Leakage in the bathroom near room 12.</td>
-                    <td>Resolved</td>
+                    <td><span class="navy">Resolved</span></td>
                     <td>10</td>
                     <td>2</td>
                     <td>2025-05-18</td>
@@ -137,17 +121,12 @@
                     <td>CSE</td>
                     <td>Fan Not Working</td>
                     <td>The fan in class CSE-A is not working.</td>
-                    <td>Pending</td>
+                    <td><span class="navy">Pending</span></td>
                     <td>3</td>
                     <td>1</td>
                     <td>2025-05-21</td>
                 </tr>
             </table>
-        </div>
-        <div class="nav">
-            <a href="#">Home</a>
-            <a href="#">Complaints</a>
-            <a href="#">Reports</a>
         </div>
     </div>
 </body>
