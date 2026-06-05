@@ -12,34 +12,30 @@
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
         }
         .container {
             max-width: 1200px;
             margin: 40px auto;
             padding: 20px;
             background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .header {
             background-color: navy;
             color: #fff;
             padding: 10px;
             text-align: center;
-            border-radius: 10px 10px 0 0;
         }
         .header h1 {
             margin: 0;
-            font-weight: 600;
         }
         .table-container {
             overflow-x: auto;
         }
         table {
-            width: 100%;
             border-collapse: collapse;
+            width: 100%;
         }
         th, td {
             border: 1px solid #ddd;
@@ -47,25 +43,14 @@
             text-align: left;
         }
         th {
-            background-color: #f0f0f0;
+            background-color: navy;
+            color: #fff;
         }
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #f2f2f2;
         }
-        tr:nth-child(odd) {
-            background-color: #fff;
-        }
-        .status {
-            font-weight: bold;
-        }
-        .pending {
-            color: #ff9900;
-        }
-        .in-progress {
-            color: #6666ff;
-        }
-        .resolved {
-            color: #33cc33;
+        tr:hover {
+            background-color: #e2e2e2;
         }
         @media only screen and (max-width: 768px) {
             .container {
@@ -73,7 +58,7 @@
                 padding: 10px;
             }
             .table-container {
-                overflow-x: auto;
+                overflow-x: scroll;
             }
         }
     </style>
@@ -107,7 +92,7 @@
                         <td>CSE</td>
                         <td>WiFi Not Working</td>
                         <td>WiFi is not working in the lab area since morning.</td>
-                        <td class="status pending">Pending</td>
+                        <td>Pending</td>
                         <td>5</td>
                         <td>1</td>
                         <td>2025-05-20</td>
@@ -119,7 +104,7 @@
                         <td>ECE</td>
                         <td>Projector Issue</td>
                         <td>Projector in room 205 is flickering.</td>
-                        <td class="status in-progress">In Progress</td>
+                        <td>In Progress</td>
                         <td>2</td>
                         <td>0</td>
                         <td>2025-05-19</td>
@@ -131,7 +116,7 @@
                         <td>Boys Hostel</td>
                         <td>Water Leakage</td>
                         <td>Leakage in the bathroom near room 12.</td>
-                        <td class="status resolved">Resolved</td>
+                        <td>Resolved</td>
                         <td>10</td>
                         <td>2</td>
                         <td>2025-05-18</td>
@@ -143,7 +128,7 @@
                         <td>CSE</td>
                         <td>Fan Not Working</td>
                         <td>The fan in class CSE-A is not working.</td>
-                        <td class="status pending">Pending</td>
+                        <td>Pending</td>
                         <td>3</td>
                         <td>1</td>
                         <td>2025-05-21</td>
