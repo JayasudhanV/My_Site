@@ -1,1 +1,154 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Management Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: navy;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        .nav {
+            background-color: navy;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        @media only screen and (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 10px;
+            }
+            .table-container {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Complaint Management Dashboard</h1>
+        </div>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Complaint ID</th>
+                    <th>User ID</th>
+                    <th>User Role</th>
+                    <th>Department</th>
+                    <th>Complaint Title</th>
+                    <th>Complaint Description</th>
+                    <th>Status</th>
+                    <th>Likes</th>
+                    <th>Comments Count</th>
+                    <th>Date Reported</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>Student</td>
+                    <td>CSE</td>
+                    <td>WiFi Not Working</td>
+                    <td>WiFi is not working in the lab area since morning.</td>
+                    <td>Pending</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>2025-05-20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>102</td>
+                    <td>Faculty</td>
+                    <td>ECE</td>
+                    <td>Projector Issue</td>
+                    <td>Projector in room 205 is flickering.</td>
+                    <td>In Progress</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>2025-05-19</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>103</td>
+                    <td>Hostel</td>
+                    <td>Boys Hostel</td>
+                    <td>Water Leakage</td>
+                    <td>Leakage in the bathroom near room 12.</td>
+                    <td>Resolved</td>
+                    <td>10</td>
+                    <td>2</td>
+                    <td>2025-05-18</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>101</td>
+                    <td>Student</td>
+                    <td>CSE</td>
+                    <td>Fan Not Working</td>
+                    <td>The fan in class CSE-A is not working.</td>
+                    <td>Pending</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>2025-05-21</td>
+                </tr>
+            </table>
+        </div>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">Complaints</a>
+            <a href="#">Reports</a>
+        </div>
+    </div>
+</body>
+</html>
