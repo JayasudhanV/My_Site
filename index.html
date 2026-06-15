@@ -6,259 +6,118 @@
     <title>Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            background-color: #032B44;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
         }
         .dashboard {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            margin: 20px;
+            width: calc(33.33% - 20px);
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
             padding: 20px;
         }
-        .header {
-            background-color: #ff0000;
-            color: #ffffff;
-            padding: 10px;
-            text-align: center;
-            width: 100%;
+        .card h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
         }
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        .table-container {
-            overflow-x: auto;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #333;
-            color: #ffffff;
-        }
-        .navy {
-            color: #03055B;
+        .card p {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
         }
         @media only screen and (max-width: 768px) {
-            .dashboard {
-                padding: 10px;
+            .card {
+                width: calc(50% - 20px);
             }
-            .content {
-                padding: 10px;
+        }
+        @media only screen and (max-width: 480px) {
+            .card {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="dashboard">
+    <div class="container">
         <div class="header">
-            <h1>Assam Dialysis Hospitals</h1>
+            <h1>Dashboard</h1>
         </div>
-        <div class="content">
-            <div class="table-container">
-                <table>
-                    <tr>
-                        <th>Hospital Name</th>
-                        <th>State</th>
-                        <th>District</th>
-                        <th>Address</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Is PMNDP</th>
-                    </tr>
-                    <tr>
-                        <td>Swahid Mukanda Kakati Civil Hospital</td>
-                        <td>Assam</td>
-                        <td>Nalbari</td>
-                        <td>SMK Civil Hospital, Nalbari</td>
-                        <td>26.4353</td>
-                        <td>91.4452</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Mangaldai Civil Hospital</td>
-                        <td>Assam</td>
-                        <td>Darrang</td>
-                        <td>Mangaldai Civil Hospital, Darrang</td>
-                        <td>26.4315</td>
-                        <td>92.0123</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Kanaklata Civil Hospital</td>
-                        <td>Assam</td>
-                        <td>Sonitpur</td>
-                        <td>Kanaklata Civil Hospital, Tezpur</td>
-                        <td>26.6339</td>
-                        <td>92.8</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Tezpur Medical College & Hospital</td>
-                        <td>Assam</td>
-                        <td>Sonitpur</td>
-                        <td>Tezpur Medical College and Hospital, Tezpur</td>
-                        <td>26.669</td>
-                        <td>92.8378</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>LGB Civil Hospital</td>
-                        <td>Assam</td>
-                        <td>Tinsukia</td>
-                        <td>Lakhimpur Civil Hospital, Tinsukia</td>
-                        <td>27.9849</td>
-                        <td>95.3597</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Morigaon Civil Hospital</td>
-                        <td>Assam</td>
-                        <td>Morigaon</td>
-                        <td>Morigaon Civil Hospital, Morigaon</td>
-                        <td>26.3837</td>
-                        <td>92.0652</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Fakhruddin Ali Ahmed Medical College & Hospital</td>
-                        <td>Assam</td>
-                        <td>Barpeta</td>
-                        <td>FAAMCH Barpeta, Barpeta</td>
-                        <td>26.315</td>
-                        <td>90.97</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>District Hospital, Bongaigaon</td>
-                        <td>Assam</td>
-                        <td>Bongaigaon</td>
-                        <td>Bongaigaon District Hospital, Bongaigaon</td>
-                        <td>26.4624</td>
-                        <td>90.5635</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>District Hospital, Sibsagar</td>
-                        <td>Assam</td>
-                        <td>Sivasagar</td>
-                        <td>Sibsagar District Hospital, Sivasagar</td>
-                        <td>26.9803</td>
-                        <td>94.681</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Civil Hospital, Dhemaji</td>
-                        <td>Assam</td>
-                        <td>Dhemaji</td>
-                        <td>Dhemaji Civil Hospital, Dhemaji</td>
-                        <td>27.5333</td>
-                        <td>94.5833</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Civil Hospital, North Lakhimpur</td>
-                        <td>Assam</td>
-                        <td>Lakhimpur</td>
-                        <td>North Lakhimpur Civil Hospital, North Lakhimpur</td>
-                        <td>27.2333</td>
-                        <td>94.1167</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>B P Civil Hospital, Nagaon</td>
-                        <td>Assam</td>
-                        <td>Nagaon</td>
-                        <td>BP Civil Hospital, Nagaon</td>
-                        <td>26.35</td>
-                        <td>92.6833</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>200 Bedded Civil Hospital, Goalpara</td>
-                        <td>Assam</td>
-                        <td>Goalpara</td>
-                        <td>200 Bedded Civil Hospital, Goalpara</td>
-                        <td>26.1804</td>
-                        <td>90.6151</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Guwahati Medical College</td>
-                        <td>Assam</td>
-                        <td>Kamrup Metropolitan</td>
-                        <td>Guwahati Medical College & Hospital, Guwahati</td>
-                        <td>26.1445</td>
-                        <td>91.7362</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Silchar Medical College</td>
-                        <td>Assam</td>
-                        <td>Cachar</td>
-                        <td>Silchar Medical College & Hospital, Silchar</td>
-                        <td>24.8333</td>
-                        <td>92.7796</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Civil Hospital, Dhubri</td>
-                        <td>Assam</td>
-                        <td>Dhubri</td>
-                        <td>Civil Hospital, Dhubri</td>
-                        <td>26.0333</td>
-                        <td>89.9833</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Assam Medical College</td>
-                        <td>Assam</td>
-                        <td>Dibrugarh</td>
-                        <td>Assam Medical College Hospital, Dibrugarh</td>
-                        <td>27.4728</td>
-                        <td>94.9113</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Jorhat Medical College</td>
-                        <td>Assam</td>
-                        <td>Jorhat</td>
-                        <td>Jorhat Medical College & Hospital, Jorhat</td>
-                        <td>26.757</td>
-                        <td>94.201</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Diphu Medical College</td>
-                        <td>Assam</td>
-                        <td>Karbi Anglong</td>
-                        <td>Diphu Medical College Hospital, Diphu</td>
-                        <td>25.8355</td>
-                        <td>93.4179</td>
-                        <td,True</td>
-                    </tr>
-                    <tr>
-                        <td>Katigorah Model Hospital</td>
-                        <td>Assam</td>
-                        <td>Cachar</td>
-                        <td>MG Model Hospital, Katigorah</td>
-                        <td>25.1344</td>
-                        <td>92.7646</td>
-                        <td,True</td>
-                    </tr>
-                </table>
+        <div class="dashboard">
+            <div class="card">
+                <h2>How many opportunities are lost and what are the reasons?</h2>
+                <p>SELECT reason_lost, COUNT(*) AS lost_count FROM opportunities_monthly_snapshot WHERE reason_lost IS NOT NULL GROUP BY reason_lost ORDER BY lost_count DESC;</p>
+            </div>
+            <div class="card">
+                <h2>What is the average contract duration (in months)?</h2>
+                <p>SELECT AVG(contract_duration_months) AS avg_contract_duration FROM opportunities_monthly_snapshot;</p>
+            </div>
+            <div class="card">
+                <h2>How has the opportunity pipeline changed month over month?</h2>
+                <p>SELECT modifiedmonthdate AS month, SUM(tcv) AS pipeline_value FROM opportunities_monthly_snapshot WHERE modifiedmonthdate IS NOT NULL GROUP BY modifiedmonthdate ORDER BY modifiedmonthdate;</p>
+            </div>
+            <div class="card">
+                <h2>Which sales leaders manage the highest pipeline value?</h2>
+                <p>SELECT business_unit, SUM(acv_converted) AS pipeline_value FROM opportunities_weekly_snapshot GROUP BY business_unit ORDER BY pipeline_value DESC;</p>
+            </div>
+            <div class="card">
+                <h2>Which client geographies contribute the highest pipeline value?</h2>
+                <p>SELECT client_geo, SUM(acv_converted) AS total_pipeline FROM opportunities_monthly_snapshot GROUP BY client_geo ORDER BY total_pipeline DESC;</p>
+            </div>
+            <div class="card">
+                <h2>What is the pipeline distribution by opportunity stage?</h2>
+                <p>SELECT sales_leader, SUM(acv_converted) AS total_pipeline FROM opportunities_monthly_snapshot GROUP BY sales_leader ORDER BY total_pipeline DESC;</p>
+            </div>
+            <div class="card">
+                <h2>What is the total converted ACV for all opportunities?</h2>
+                <p>SELECT SUM(acv_converted) FROM opportunities_monthly_snapshot;</p>
+            </div>
+            <div class="card">
+                <h2>What is the total pipeline ACV by capability for the latest week?</h2>
+                <p>SELECT capability, SUM(acv_converted) / 1000000.0 AS total_pipeline FROM opportunities_weekly_snapshot GROUP BY capability;</p>
+            </div>
+            <div class="card">
+                <h2>What is the pipeline distribution across opportunity stages</h2>
+                <p>SELECT os.Stage, SUM(oli.acv_converted) / 1000000.0 AS pipeline_value FROM opportunity_line_item_snapshot oli JOIN opportunity_stages os ON oli.stage_id = os.ID GROUP BY os.Stage ORDER BY pipeline_value DESC;</p>
+            </div>
+            <div class="card">
+                <h2>What is the total pipeline ACV for open opportunities</h2>
+                <p>SELECT SUM(oli.acv_converted) / 1000000.0 AS active_pipeline FROM opportunity_line_item_snapshot oli JOIN opportunity_stages os ON oli.stage_id = os.ID WHERE os.Stage NOT IN ('Closed Won', 'Closed Lost');</p>
+            </div>
+            <div class="card">
+                <h2>How much pipeline ACV was dropped?</h2>
+                <p>SELECT SUM(oli.acv_converted) / 1000000.0 AS dropped_pipeline FROM opportunity_line_item_snapshot oli JOIN opportunity_stages os ON oli.stage_id = os.ID WHERE os.Stage IN ('Dropped', 'Dropped');</p>
             </div>
         </div>
     </div>
