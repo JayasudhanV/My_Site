@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complaint Management Dashboard</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap">
+    <title>Business Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
         }
         .container {
             max-width: 1200px;
@@ -22,42 +24,51 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .header {
-            background-color: navy;
+            background-color: #34c759;
             color: #fff;
             padding: 20px;
-            text-align: center;
             border-bottom: 1px solid #ddd;
         }
         .header h1 {
             margin: 0;
-            font-weight: 800;
+            font-weight: 700;
         }
-        .table-container {
+        .content {
             padding: 20px;
         }
-        table {
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .chart {
+            width: 100%;
+            height: 100%;
+        }
+        .data-table {
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+        .data-table th, .data-table td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
         }
-        th {
+        .data-table th {
             background-color: #f0f0f0;
-            font-weight: 600;
         }
-        .navy {
-            color: navy;
+        .data-table td {
+            background-color: #fff;
         }
-        @media only screen and (max-width: 768px) {
+        @media (max-width: 768px) {
             .container {
                 margin: 20px auto;
                 padding: 10px;
             }
-            .table-container {
-                padding: 10px;
+            .chart-container {
+                height: 300px;
             }
         }
     </style>
@@ -65,72 +76,221 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Complaint Management Dashboard</h1>
+            <h1>Business Dashboard</h1>
         </div>
-        <div class="table-container">
-            <table>
-                <tr>
-                    <th>Complaint ID</th>
-                    <th>User ID</th>
-                    <th>User Role</th>
-                    <th>Department</th>
-                    <th>Complaint Title</th>
-                    <th>Complaint Description</th>
-                    <th>Status</th>
-                    <th>Likes</th>
-                    <th>Comments Count</th>
-                    <th>Date Reported</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>101</td>
-                    <td>Student</td>
-                    <td>CSE</td>
-                    <td>WiFi Not Working</td>
-                    <td>WiFi is not working in the lab area since morning.</td>
-                    <td><span class="navy">Pending</span></td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>2025-05-20</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>102</td>
-                    <td>Faculty</td>
-                    <td>ECE</td>
-                    <td>Projector Issue</td>
-                    <td>Projector in room 205 is flickering.</td>
-                    <td><span class="navy">In Progress</span></td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td>2025-05-19</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>103</td>
-                    <td>Hostel</td>
-                    <td>Boys Hostel</td>
-                    <td>Water Leakage</td>
-                    <td>Leakage in the bathroom near room 12.</td>
-                    <td><span class="navy">Resolved</span></td>
-                    <td>10</td>
-                    <td>2</td>
-                    <td>2025-05-18</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>101</td>
-                    <td>Student</td>
-                    <td>CSE</td>
-                    <td>Fan Not Working</td>
-                    <td>The fan in class CSE-A is not working.</td>
-                    <td><span class="navy">Pending</span></td>
-                    <td>3</td>
-                    <td>1</td>
-                    <td>2025-05-21</td>
-                </tr>
+        <div class="content">
+            <div class="chart-container">
+                <canvas class="chart" id="chart"></canvas>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Population</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table-body">
+                    <!-- data will be populated here -->
+                </tbody>
             </table>
         </div>
     </div>
+    <script>
+        const populationData = [
+            54.96714153011233,
+            48.61735698828815,
+            56.47688538100692,
+            65.23029856408026,
+            47.658466252766644,
+            47.6586304305082,
+            65.79212815507391,
+            57.67434729152909,
+            45.30525614065048,
+            55.42560043585965,
+            45.365823071875376,
+            45.34270246429743,
+            52.41962271566034,
+            30.86719755342202,
+            32.75082167486967,
+            44.37712470759027,
+            39.87168879665576,
+            53.142473325952736,
+            40.91975924478789,
+            35.87696298664709,
+            64.65648768921554,
+            47.74223699513465,
+            50.67528204687924,
+            35.75251813786544,
+            44.556172754748175,
+            51.10922589709866,
+            38.490064225776976,
+            53.75698018345672,
+            43.99361310081195,
+            47.083062502067236,
+            43.98293387770603,
+            68.52278184508938,
+            49.86502775262066,
+            39.422890710440996,
+            58.225449121031886,
+            37.791563500289776,
+            52.08863595004755,
+            30.403298761202244,
+            36.71813951101569,
+            51.96861235869123,
+            57.38466579995411,
+            51.7136828118997,
+            48.843517176117594,
+            46.98896304410711,
+            35.214780096325725,
+            42.801557916052914,
+            45.393612290402125,
+            60.57122226218915,
+            53.43618289568462,
+            32.36959844637266,
+            53.24083969394795,
+            46.149177195836835,
+            43.23077999694041,
+            56.11676288840868,
+            60.30999522495951,
+            59.31280119116199,
+            41.607824767773614,
+            46.907876241487855,
+            53.31263431403564,
+            59.75545127122359,
+            45.2082576215471,
+            48.14341023336183,
+            38.93665025993972,
+            38.037933759193294,
+            58.125258223941984,
+            63.56240028570823,
+            49.27989878419666,
+            60.03532897892024,
+            53.61636025047634,
+            43.54880245394876,
+            53.61395605508414,
+            65.38036566465969,
+            49.64173960890049,
+            65.64643655814007,
+            23.802548959102555,
+            58.21902504375224,
+            50.870470682381715,
+            47.009926495341325,
+            50.91760776535502,
+            30.124310853991073,
+            47.80328112162488,
+            53.57112571511746,
+            64.77894044741517,
+            44.81729781726352,
+            41.91506397106812,
+            44.982429564154636,
+            59.15402117702074,
+            53.287511096596845,
+            44.70239796232961,
+            55.13267433113356,
+            50.9707754934804,
+            59.68644990532889,
+            42.979469061226474,
+            46.723378534022316,
+            46.078918468678424,
+            35.364850518678814,
+            52.96120277064576,
+            52.610552721798896,
+            50.05113456642461,
+            47.65412866624853,
+            35.84629257949586,
+            45.79354677234641,
+            46.572854834732304,
+            41.97722730778381,
+            48.387142883339905,
+            54.040508568145384,
+            68.8618590121053,
+            51.74577812831839,
+            52.57550390722764,
+            49.25554084233833,
+            30.812287847009586,
+            49.73486124550783,
+            50.60230209941027,
+            74.63242112485287,
+            48.076390352188774,
+            53.015473423336125,
+            49.65288230294757,
+            38.31321962380468,
+            61.42822814515021,
+            57.519330326867745,
+            57.910319470430466,
+            40.906125452052606,
+            64.02794310936099,
+            35.98148937207719,
+            55.868570938002705,
+            71.90455625809979,
+            40.09463674869312,
+            44.33702270397228,
+            50.99651365087641,
+            44.96524345883801,
+            34.493365689338674,
+            50.68562974806027,
+            39.37696286273895,
+            54.73592430635182,
+            40.80575765766197,
+            65.4993440501754,
+            42.16746707663763,
+            46.77938483794324,
+            58.135172173696695,
+            37.69135683566045,
+            52.27459934604129,
+            63.07142754282428,
+            33.92516765438772,
+            51.84633858532304,
+            52.598827942484235,
+            57.8182287177731,
+            37.63049289121918,
+            36.795433869157236,
+            55.21941565616898,
+            52.96984673233186,
+            52.504928503458764,
+            53.46448209496975,
+            43.19975278421509,
+            52.322536971610035,
+            52.93072473298681,
+            42.85648581973632,
+            68.65774511144757,
+            54.73832920911788,
+            38.08696502797351,
+            56.5655360863383,
+            40.253183297726785,
+            57.87084603742452,
+            61.58595579007404,
+            41.7931768164829
+        ];
+        const ctx = document.getElementById('chart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array(populationData.length).fill(0).map((_, i) => i + 1),
+                datasets: [{
+                    label: 'Population',
+                    data: populationData,
+                    backgroundColor: 'rgba(52, 199, 89, 0.2)',
+                    borderColor: 'rgba(52, 199, 89, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        const dataTableBody = document.getElementById('data-table-body');
+        populationData.forEach((data, i) => {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.textContent = data;
+            row.appendChild(cell);
+            dataTableBody.appendChild(row);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
